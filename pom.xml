@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.thinksky.tribuo</groupId>
@@ -80,34 +81,34 @@
     <profiles>
         <profile>
             <id>native</id>
-                <build>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.graalvm.nativeimage</groupId>
-                            <artifactId>native-image-maven-plugin</artifactId>
-                            <version>${graalvm.version}</version>
-                            <executions>
-                                <execution>
-                                    <goals>
-                                        <goal>native-image</goal>
-                                    </goals>
-                                    <phase>package</phase>
-                                </execution>
-                            </executions>
-                            <configuration>
-                                <imageName>${project.artifactId}</imageName>
-                                <mainClass>com.thinksky.tribuo.training.Application</mainClass>
-                                <buildArgs combine.children="append">
-                                    <buildArgs>
-                                        --verbose
-                                        --no-fallback
-                                        --initialize-at-build-time=org.slf4j
-                                    </buildArgs>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.graalvm.nativeimage</groupId>
+                        <artifactId>native-image-maven-plugin</artifactId>
+                        <version>${graalvm.version}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>native-image</goal>
+                                </goals>
+                                <phase>package</phase>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <imageName>${project.artifactId}</imageName>
+                            <mainClass>com.thinksky.tribuo.training.Application</mainClass>
+                            <buildArgs combine.children="append">
+                                <buildArgs>
+                                    --verbose
+                                    --no-fallback
+                                    --initialize-at-build-time=org.slf4j
                                 </buildArgs>
-                            </configuration>
-                        </plugin>
+                            </buildArgs>
+                        </configuration>
+                    </plugin>
                 </plugins>
             </build>
         </profile>
     </profiles>
-    </project>
+</project>

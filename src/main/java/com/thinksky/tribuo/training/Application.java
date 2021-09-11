@@ -20,7 +20,7 @@ import java.io.ObjectOutputStream;
 public class Application {
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
-    public static void main(String... args) throws IOException, ClassNotFoundException {
+    public static void main(String... args) throws IOException {
         logger.info("Application starts");
 
 
