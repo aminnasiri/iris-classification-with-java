@@ -97,7 +97,7 @@
                         </executions>
                         <configuration>
                             <imageName>${project.artifactId}</imageName>
-                            <mainClass>com.thinksky.tribuo.training.Application</mainClass>
+                            <mainClass>com.thinksky.tribuo.training.TrainingModel</mainClass>
                             <buildArgs combine.children="append">
                                 <buildArgs>
                                     --verbose
