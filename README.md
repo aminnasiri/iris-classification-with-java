@@ -9,10 +9,22 @@ Learning (ML) models and for using those models to make predictions on previousl
 - Apache Maven
 - GraalVM Native Image (optional)
 
-## Building the project
+## Train the model and store it as a file. 
 
 ```
-mvn clean package
+$ mvn test -Dtest=com.thinksky.tribuo.training.TrainingModelTest
+```
+
+## Predict Iris
+
+```
+$ mvn clean install
+```
+
+then execute java app
+
+```
+$ java -jar target/iris-classification-1.0-SNAPSHOT.jar
 ```
 
 ## Building the native image

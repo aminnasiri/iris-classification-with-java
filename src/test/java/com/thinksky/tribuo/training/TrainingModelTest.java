@@ -4,18 +4,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tribuo.classification.evaluation.LabelEvaluation;
-import org.tribuo.classification.evaluation.LabelEvaluator;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
-class ApplicationTest {
+class TrainingModelTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(ApplicationTest.class);
+    private static final Logger logger = LoggerFactory.getLogger(TrainingModelTest.class);
 
     @Test
-    void addition() throws Exception {
+    void trainingTest() throws Exception {
 
         var trainingModel = new TrainingModel();
         var train = trainingModel.train(ClassLoader.getSystemResource("bezdekIris.data"));
@@ -38,7 +36,7 @@ class ApplicationTest {
 
         logger.info("\n\n=================Save Model==========================\n");
 
-        var writeOutputStream = new FileOutputStream("irisModel.bin");
+        var writeOutputStream = new FileOutputStream("target/irisModel.bin");
         var objectOutputStream = new ObjectOutputStream(writeOutputStream);
         objectOutputStream.writeObject(train);
         objectOutputStream.flush();

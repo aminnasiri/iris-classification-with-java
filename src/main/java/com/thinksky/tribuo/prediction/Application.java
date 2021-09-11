@@ -4,16 +4,15 @@ package com.thinksky.tribuo.prediction;
 import com.oracle.labs.mlrg.olcut.provenance.ProvenanceUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tribuo.Example;
 import org.tribuo.Model;
 import org.tribuo.classification.Label;
 import org.tribuo.classification.LabelFactory;
 import org.tribuo.data.csv.CSVLoader;
-import org.tribuo.impl.ArrayExample;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.nio.file.Path;
 
 public class Application {
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
@@ -25,7 +24,7 @@ public class Application {
         var csvLoader = new CSVLoader<>(labelFactory);
 
         //Read saved model
-        var readInputStream = new FileInputStream("irisModel.bin");
+        var readInputStream = new FileInputStream("target/irisModel.bin");
         var objectInputStream = new ObjectInputStream(readInputStream);
         var savedModel = (Model<Label>) objectInputStream.readObject();
 
@@ -34,16 +33,8 @@ public class Application {
 
         System.out.println(ProvenanceUtil.formattedProvenanceString(provenance.getTrainerProvenance()));
 
-
-        //Make a prediction
-        Example<Label> example = new ArrayExample<>(
-                new Label("winner"),
-                10f,
-                1
-        );
-
         var irisHeadersPre = new String[]{"sepalLength", "sepalWidth", "petalLength", "petalWidth", "species"};
-        var irisesSourcePre = csvLoader.loadDataSource(ClassLoader.getSystemResource("bezdekIris-prediction.data"), "species", irisHeadersPre);
+        var irisesSourcePre = csvLoader.loadDataSource(Path.of("iris-prediction.data"), "species", irisHeadersPre);
 
         var predictionList = savedModel.predict(irisesSourcePre);
         predictionList.forEach(labelPrediction -> {
