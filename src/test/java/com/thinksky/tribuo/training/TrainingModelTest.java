@@ -12,6 +12,11 @@ class TrainingModelTest {
 
     private static final Logger logger = LoggerFactory.getLogger(TrainingModelTest.class);
 
+
+    /**
+     * This method has main responsibility of testing and training the model, if the model has more 90% accuracy, the model will store in a file.
+     * @throws Exception
+     */
     @Test
     void trainingTest() throws Exception {
 

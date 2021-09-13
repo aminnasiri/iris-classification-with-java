@@ -22,6 +22,12 @@ public class TrainingModel {
 
     private MutableDataset<Label> testingDataset;
 
+    /**
+     * It will get URL of raw dataset file and return trained dataset
+     * @param url Dataset file as URL object
+     * @return Model generic Label
+     * @throws IOException
+     */
     public Model<Label> train(URL url) throws IOException {
         logger.info("Application starts");
 
@@ -46,6 +52,11 @@ public class TrainingModel {
         return trainer.train(trainingDataset);
     }
 
+    /**
+     * It will get a model and evaluate it by global test dataset
+     * @param model Trained model
+     * @return {@link LabelEvaluation}
+     */
     public LabelEvaluation evaluator(Model<Label> model){
 
         var evaluator = new LabelEvaluator();

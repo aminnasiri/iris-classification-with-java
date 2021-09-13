@@ -38,7 +38,7 @@ public class Application {
 
         var predictionList = savedModel.predict(irisesSourcePre);
         predictionList.forEach(labelPrediction -> {
-            logger.info("Predicted Label {}", labelPrediction.getOutput().getLabel());
+            logger.info("Predicted: {}", labelPrediction.getOutput().getLabel());
         });
 
 
