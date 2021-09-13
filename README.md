@@ -61,12 +61,12 @@ Mostly testing a Java application occurs on uni-test, so we can run our test wit
     | Iris-virginica   |     15     |     14    |      1     |    0   |   0.933    |   1.000   |  0.966 |
     | Iris-setosa      |     14     |     14    |      0     |    0   |   1.000    |  1.000    |  1.000 |
     | Total            |     45     |     44    |      1     |    1   |            |           |        |
-    |------------------|------------|-----------|------------|--------|------------|-----------|--------|
 
-     Accuracy                                                                    0.978
-     Micro Average                                                               0.978       0.978       0.978
-     Macro Average                                                               0.978       0.980       0.978
-     Balanced Error Rate                                                         0.022
+     
+     - Accuracy                                                                    0.978
+     - Micro Average                                                               0.978       0.978       0.978
+     - Macro Average                                                               0.978       0.980       0.978
+     - Balanced Error Rate                                                         0.022
 
 This output lists:
 - class, the different classes in the test set
